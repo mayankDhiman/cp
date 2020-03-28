@@ -8,9 +8,8 @@ vector <ll> h;
 
 ll dp(ll i)
 {
-	if (i == n - 1){
+	if (i == n - 1)
 		return 0;
-	}
 	if (i >= n)	return 2e9;
 	if (cache[i] != -1)	return cache[i];
 	return cache[i] = min(abs(h[i] - h[i + 1]) + dp(i + 1), abs(h[i] - h[i + 2]) + dp(i + 2));
