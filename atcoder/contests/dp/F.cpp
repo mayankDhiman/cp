@@ -5,7 +5,7 @@ using namespace std;
 
 ll n, m;
 ll cache[int(3e3 + 1)][int(3e3 + 1)];
-string a, b;
+string  j, a, b;
 ll dp(ll i, ll j)
 {
 	if (i >= n || j >= m){

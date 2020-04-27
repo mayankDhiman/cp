@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+
 
 #define ll long long 
 
@@ -8,8 +7,7 @@ ll power(ll x, ll y, ll p)
     ll res = 1;  
     x = x % p; 
     if (x == 0) return 0; 
-    while (y > 0)  
-    {  
+    while (y > 0){  
         if (y & 1)  
             res = (res*x) % p;  
         y = y>>1;  
@@ -17,6 +15,11 @@ ll power(ll x, ll y, ll p)
     }  
     return res;  
 }  
+
+int test()
+{
+	cin >> a;
+}
 int main() {
 	ll t; cin >> t;
 	while (t --) {

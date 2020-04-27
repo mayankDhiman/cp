@@ -67,25 +67,37 @@ void debug_out(Head H, Tail... T) {
 #define pb push_back
 #define speed ios_base::sync_with_stdio(0);	cin.tie(0);	cout.tie(0);
 
-
-
+int main() {
 	ll t; cin >> t;
 	while (t --) {
-		ll n, s; cin >> n >> s;
-		vector <ll> a(n); for (auto & x : a) cin >> x;
-		ll md = LLONG_MAX, mf = LLONG_MAX;
+		ll n; cin >> n;
+		map <ll, vector <ll> > pos;
 		for (ll i = 0; i < n; i ++){
 			ll x; cin >> x;
-			if (x)
-				mf = min(mf, a[i]); 
-			else
-				md = min(md, a[i]);
+			pos[x].push_back(i);
 		}
-		if (md == LLONG_MAX || mf == LLONG_MAX) {
-			cout << "no\n";
-			continue;
+		/* for (auto x : pos){ */
+		/* 	cout << x.first << " "; for (auto y : x.second) cout << y << " "; cout << "\n"; */
+		/* } */
+		ll res = 0, ans = -1;
+		for (auto x : pos){
+			ll cn = 0, pr = -2;
+			/* cout << "\n\n\n"; */
+			for (ll i = 0; i < int(x.second.size()); i ++){
+				if (x.second[i] == pr + 1){
+
+				}
+				else {
+					/* cout << i << "\n"; */
+					cn += 1;
+					pr = x.second[i];
+				}
+			}
+			if (cn > res){
+				res = max(res, cn);
+				ans = x.first;
+			}
 		}
-		if (md + mf + s <= 100) cout << "yes\n";
-		else cout << "no\n";
+		cout << ans << "\n";
 	}
 }
